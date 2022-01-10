@@ -6,13 +6,9 @@
         <v-card
             class="mx-auto"
             max-width="344"
+            height="260"
 
         >
-          <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              height="200px"
-          ></v-img>
-
           <v-card-title>
             {{ episode.title }}
           </v-card-title>
@@ -26,17 +22,16 @@
             {{ episode.characters }}
           </v-card-text>
 
-          <v-card-actions>
+          <v-card-actions class="cardActions">
+            <v-spacer></v-spacer>
             <v-btn
                 color="orange lighten-2"
+                class="buttonExplore"
                 text
                 @click="goToPage(episode)"
             >
               Explore
             </v-btn>
-
-            <v-spacer></v-spacer>
-
           </v-card-actions>
         </v-card>
       </v-col>
@@ -62,7 +57,6 @@ export default {
   },
   methods: {
     goToPage(episode) {
-        this.$store.dispatch('getEpisodeId', episode)
         this.$router.push('/episodes/' + episode.episode_id)
     }
   }
